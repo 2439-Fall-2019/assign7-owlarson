@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     test_page.html
+     INFO2439
+     Thoendel
+     10/27/19
+-->
+<div data-role="page" id="first">
+    <div data-role="header">
+        <h1>Page Event Tests</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <p>
+            <a href="#page2" data-role="button">Go to Page 2</a>
+            <a href="test_pagea.html" data-role="button">Go to Page 3</a>
+            <a href="test_pageb.html" data-role="button">Go to Page 4</a>
+            <a href="test_pageDOESNTEXIST.html" data-role="button">Go to Page Failed</a>
+        </p>
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>Page Event Tests</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <p>
+            <a href="#first" data-role="button">Go to Page 1</a>
+            <a href="test_pagea.html" data-role="button">Go to Page 3</a>
+            <a href="test_pageb.html" data-role="button">Go to Page 4</a>
+        </p>
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script>
+    $(document).bind("pagecontainerbeforeload pagecontainerload pagecontainerloadfailed pagecontainerbeforechange pagecontainerchange pagecontainerchangefailed pagecontainerbeforeshow pagecontainerbeforehide pagecontainershow pagecontainerhide pagebeforecreate pagecreate pageremove updatelayout", function(e) {
+        console.log(e.type);
+    });
+</script>
+</body>
+</html>

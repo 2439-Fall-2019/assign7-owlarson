@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assignment 6</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="gamer-icon" href="_icons/gamer.png"> <!--Obtained from iconarchive.com-->
+    <link rel="gamer-icon" sizes="57x57" href="_icons/gamer57.png">
+    <link rel="gamer-icon" sizes="76x76" href="_icons/gamer76.png">
+    <link rel="gamer-icon" sizes="120x120" href="_icons/gamer120.png">
+    <link rel="gamer-icon" sizes="152x152" href="_icons/gamer152.png">
+    <link rel="gamer-icon" sizes="180x180" href="_icons/gamer180.png">
+    <link rel="gamer-icon" sizes="192x192" href="_icons/gamer192.png">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     index.html
+     INFO2439
+     Thoendel
+     10/3/19
+-->
+<div data-role="page">
+    <div data-role="header">
+        <h1>Assignment 6</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <ul id="theList" data-role="listview" data-inset="true">
+            <li>Items</li>
+        </ul>
+        <form>
+            <div data-role="fieldcontain">
+                <label for="additem">New Item</label>
+                <input type="text" name="additem" id="additem" value=""/>
+                <label for="address">New Address</label>
+                <input type="text" name="address" id="address" value=""/>
+            </div> <!--closing fieldcontain tag-->
+            <input type="button" id="testBtn" value="Add It">
+        </form>
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script>
+    $("#testBtn").click(function() {
+        var itemToAdd = $.trim($("#additem").val());
+        if(itemToAdd == "") return;
+        var addressToAdd = $.trim($("#address").val());
+        if(addressToAdd == "") return;
+        $("#theList").append("<li><a href='"+addressToAdd+"' target='blank'>"+itemToAdd+"</a></li>");
+        $("#theList").listview("refresh");
+    });
+</script> 
+</body>
+</html>

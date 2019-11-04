@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test 7</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     test7.html
+     INFO2439
+     Thoendel
+     10/27/19
+-->
+<div data-role="page" id="third">
+    <div data-role="header">
+        <h1>List Updates</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content" id="contentDiv">
+        <input type="button" id="testBtn" value="Add A List">
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script>
+    $("#testBtn").click(function() {
+        var html="<ul data-role='listview' data-inset='true' id='theList'>"+   "<li>Item One</li><li>Item Two</li></ul>";
+        $("#contentDiv").append(html);
+        $("#theList").listview();
+    });
+</script>
+</body>
+</html>
