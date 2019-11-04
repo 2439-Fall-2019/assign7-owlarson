@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test Dynamic</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     test_dyn.html
+     INFO2439
+     Thoendel
+     10/27/19
+-->
+<div data-role="page" id="homepage">
+    <div data-role="header">
+        <h1>Dynamic Pages</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <ul id="peopleList" data-role="listview" data-inset="true"></ul>
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script>
+    $("#homepage").bind("pagebeforecreate", function(e) {
+        //load in our people
+        $.get("people.json", {}, function(res,code) {
+            var s = "";
+            for (var i = 0; i < res.length; i++) {
+                s+="<li><a href='test_people.html?id="+res[i].id+"'>"+              res[i].name+"</a></li>";
+            }
+            $("#peopleList").html(s).listview("refresh");
+        }, "json");
+    });
+    $(document).on("pagecontainerbeforeshow", function(e) {
+        console.log('pagecontainerbeforeshow');   
+        var page = $.mobile.pageContainer.pagecontainer("getActivePage") [0];
+        var parts = $.mobile.path.parseLocation();
+        if(parts.pathname.indexOf("test_people") >= 0) {
+            var thisId = parts.search.split("=")[1];
+            $.get("person"+thisId+".json", {}, function(res, code) {
+                $("h1",page).text(res.name);
+                s = "<p>"+res.name+" is a "+res.gender+" and likes "+res.hobbies+"</p>";
+                $("#contentArea", page).html(s);
+            }, "json");
+        }
+    });
+</script>
+</body>
+</html>

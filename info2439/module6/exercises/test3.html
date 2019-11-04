@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test 3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     test3.html
+     INFO2439
+     Thoendel
+     10/3/19
+-->
+<div data-role="page" id="third">
+    <div data-role="header">
+        <h1>Test</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <input type="button" id="pageBtn" value="Go to page">
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script> $("#pageBtn").click(function() {
+    $.mobile.pageContainer.pagecontainer("change", "test2.html", {transition:"flip"}); });
+</script>
+</body>
+</html>

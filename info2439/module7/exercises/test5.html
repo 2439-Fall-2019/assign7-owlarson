@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test 5</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head>
+<body>
+<!-- Owen Larson
+     test5.html
+     INFO2439
+     Thoendel
+     10/27/19
+-->
+<div data-role="page" id="first">
+    <div data-role="header">
+        <h1>Orientation Tests</h1>
+    </div> <!--closing header tag-->
+    <div role="main" class="ui-content">
+        <p>Tilt this sideways!</p>
+        <p id="status"></p>
+    </div> <!--closing main tag-->
+</div> <!--closing page tag-->
+<script>
+    $(window).bind("orientationchange", function(e,type) {
+        $("#status").html("Orientation changed to "+e.orientation);
+    });
+</script>
+</body>
+</html>
